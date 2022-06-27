@@ -1,0 +1,94 @@
+*{
+    font-family: 'Stoke', serif;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(../imagens/background-roxo.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+#container{
+    width: 80%;
+    max-width: 500px;
+    margin: 50px auto;
+    position: relative;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 0 60px black;
+    backdrop-filter: blur(2px);
+}
+
+h1{
+    color: white;
+}
+
+#inputTextoTarefa{
+    width: 70%;
+    height: 30px;
+    margin: 20px 0;
+}
+
+#add, #limpar{
+    background-color: #6D0055;
+    color: white;
+    cursor: pointer;
+    border-color: #6D0055;
+    height: 35px;
+}
+
+#add:hover, #limpar:hover{
+    background-color: rgba(109, 0, 85, 0.5);
+    border-color: rgba(109, 0, 85, 0.1);
+
+}
+
+#add{
+    background-image: url(../imagens/icone\ +.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 35px;
+    position: relative;
+    top: 9px;
+}
+
+li{
+    position: relative;
+    list-style: none;
+    background-color: white;
+    width: calc(70% + 45px);
+    min-height: 30px;
+    margin: 10px auto;
+    text-align: left;
+    line-height: 40px;
+    text-indent: 10px;
+    word-wrap: break-word;
+}
+
+.deletar-tarefa{
+    position: absolute;
+    right: 0;
+    bottom: 4px;
+}
+
+footer{
+    text-align: center;
+    position: relative;
+    bottom: 20px;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+footer img{
+    position: relative;
+    top: 5px;
+}
+
