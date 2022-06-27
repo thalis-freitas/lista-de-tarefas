@@ -1,6 +1,6 @@
 # Lista de Tarefas
 
-Lista de Tarefas desenvolvida com html, css e javascript utilizando localStorage para fazer o armazenamento local de dados.
+Lista de Tarefas desenvolvida com html, css e javascript utilizando localStorage para fazer o armazenamento local de dados para que mesmo se a página for fechada ou atualizada as tarefas não sejam perdidas.
 
 Link para a página: https://thalis-freitas.github.io/lista-de-tarefas/
 
