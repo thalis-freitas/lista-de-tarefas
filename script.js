@@ -1,6 +1,11 @@
 let input = document.getElementById('input')
 let list = document.getElementById('list')
 let tasks = []
+let buttonAdd = document.getElementById('add')
+let buttonClean = document.getElementById('clean')
+
+buttonAdd.addEventListener('click', add)
+buttonClean.addEventListener('click', clean)
 
 onload = function(){
     tasks = JSON.parse(localStorage.getItem('tasks'))
