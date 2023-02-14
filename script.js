@@ -1,9 +1,9 @@
-let input = document.getElementById("input")
-let list = document.getElementById("list")
+let input = document.getElementById('input')
+let list = document.getElementById('list')
 let tasks = []
 
 onload = function(){
-    tasks = JSON.parse(localStorage.getItem("tasks"))
+    tasks = JSON.parse(localStorage.getItem('tasks'))
     tasks === null ? tasks = [] : tasks
     tasks.forEach(function(i) {
         list.innerHTML += `<li name=${i}>${i}<button class='deletar-tarefa' onclick='deleteTask(this)' style='background-image: url(./imagens/icone-lixo.png)'></button></li>`
@@ -19,20 +19,18 @@ function add(){
         tasks.push(input.value)
         str = JSON.stringify(tasks)
         list.innerHTML += `<li name= ${input.value}>${input.value}<button class='deletar-tarefa' onclick='deleteTask(this)' style='background-image: url(./imagens/icone-lixo.png)'></button></li>`
-        localStorage.setItem("tasks", str)
+        localStorage.setItem('tasks', str)
         clearInput()
-    }
-    else{
-        alert("Não é possível adicionar uma tarefa sem conteúdo")
+    }else{
+        alert('Não é possível adicionar uma tarefa sem conteúdo')
     }
 }
 
 function clean(){
     if (tasks.length == 0){
-        alert("A lista de tarefas já está vazia")
-    }  
-    else if(confirm("Deseja mesmo excluir todas as tarefas?") == true){
-        localStorage.clear("tasks")
+        alert('A lista de tarefas já está vazia')
+    }else if(confirm('Deseja mesmo excluir todas as tarefas?') == true){
+        localStorage.clear('tasks')
         list.innerHTML = null
         tasks = []
         clearInput()
@@ -46,5 +44,5 @@ function deleteTask(trashIcon) {
         i === tasks[index] ? tasks.splice(index, 1) : tasks
     }
     trashIcon.parentElement.remove()
-    localStorage.setItem("tasks", JSON.stringify(tasks))
+    localStorage.setItem('tasks', JSON.stringify(tasks))
 }
