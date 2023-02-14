@@ -1,36 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lista de Tarefas</title>
+        <link rel="stylesheet" href="./CSS/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Stoke&display=swap" rel="stylesheet">
+        <link rel="icon" href="./imagens/icone-lista.png">
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Tarefas</title>
-    <link rel="stylesheet" href="./CSS/style.css">
+    <body>
+        <div id="container">
+            <h1>Lista de Tarefas</h1>
+            <input type="text" id="input">
+            <button id="add" onclick="add()"></button>
+            <div id="list"></div>
+            <button id="clean" onclick="clean()">Limpar</button>
+            <script src="./script.js"></script>
+        </div>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Stoke&display=swap" rel="stylesheet">
-    <link rel="icon" href="./imagens/icone-lista.png">
-</head>
-
-<body>
-
-    <div id="container">
-        <h1>Lista de Tarefas</h1>
-        <input type="text" id="inputTextoTarefa">
-        <button id="add" onclick="adicionar()"></button>
-        <div id="lista"></div>
-        <button id="limpar" onclick="limparTudo()">Limpar</button>
-        <script src="./script.js"></script>
-    </div>
-
-    <footer><a href="https://github.com/Thalis-Freitas" target="_blank"><img src="./imagens/icone-github.png"
-                alt="github">
+        <footer>
+            <a href="https://github.com/Thalis-Freitas" target="_blank"><img src="./imagens/icone-github.png"
+            alt="github">
             <span> Desenvolvido por: <b>Thalis Freitas </b> </span> </a>
-    </footer>
-
-
-</body>
-
+        </footer>
+    </body>
 </html>

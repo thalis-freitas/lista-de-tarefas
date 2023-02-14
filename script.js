@@ -1,93 +1,50 @@
-
-let texto = document.getElementById("inputTextoTarefa")
-let lista = document.getElementById("lista")
-let tarefas = [];
-
-
-// Função que irá exibir as tarefas armazenadas com o localStorage quando a página for carregada/atualizada
+let input = document.getElementById("input")
+let list = document.getElementById("list")
+let tasks = []
 
 onload = function(){
+    tasks = JSON.parse(localStorage.getItem("tasks"))
+    tasks === null ? tasks = [] : tasks
+    tasks.forEach(function(i) {
+        list.innerHTML += `<li name=${i}>${i}<button class='deletar-tarefa' onclick='deleteTask(this)' style='background-image: url(./imagens/icone-lixo.png)'></button></li>`
+    })
+}
 
-    tarefas = JSON.parse(localStorage.getItem("tarefas"))
-   
-    if (tarefas === null){
-        tarefas = []
-    }
-    
-    tarefas.forEach(function(index) {
+function clearInput(){
+    input.value = ''
+}
 
-        let conteudoLista = "<li name='" + index + "'>" + index + "<button class='deletar-tarefa' onclick='deletarTarefa(this)' style='width: 32px; height:32px; background-color: transparent; border: none; background-image: url(./imagens/icone-lixo.png); cursor: pointer '>" + " " + "</button>" + "</li>"
-
-        lista.innerHTML += conteudoLista
-    });
-
-    }
-
-// Função para adicionar uma nova tarefa no array tarefas quando o botão + for clicado
-function adicionar(){
-
-    if (texto.value.trim() != 0){
-    tarefas.push(texto.value)
-
-    valor = JSON.stringify(tarefas)
-
-    let conteudoLista = "<li name='" + texto.value + "'>" + texto.value + "<button class='deletar-tarefa' onclick='deletarTarefa(this)' style='width: 32px; height:32px; background-color: transparent; border: none; background-image: url(./imagens/icone-lixo.png); cursor: pointer; '>" + " " + "</button>" + "</li>"
-
-    lista.innerHTML += conteudoLista
-
-    localStorage.setItem("tarefas", valor)
-
-    limparInput()
+function add(){
+    if (input.value.trim() != 0){
+        tasks.push(input.value)
+        str = JSON.stringify(tasks)
+        list.innerHTML += `<li name= ${input.value}>${input.value}<button class='deletar-tarefa' onclick='deleteTask(this)' style='background-image: url(./imagens/icone-lixo.png)'></button></li>`
+        localStorage.setItem("tasks", str)
+        clearInput()
     }
     else{
         alert("Não é possível adicionar uma tarefa sem conteúdo")
     }
-
 }
 
-function limparInput(){
-    texto.value = ''
-}
-
-// Função para excluir todas as tarefas armazenadas quando o botão Limpar for clicado
-function limparTudo(){
-
-    if (tarefas.length == 0){
+function clean(){
+    if (tasks.length == 0){
         alert("A lista de tarefas já está vazia")
     }  
-    else{
-    let confirmar = confirm("Deseja mesmo excluir todas as tarefas?")
-    
-        if(confirmar == true){
-            localStorage.clear("tarefas")
-            lista.innerHTML = null
-            texto.value = ''
-            tarefas = []
-        }
+    else if(confirm("Deseja mesmo excluir todas as tarefas?") == true){
+        localStorage.clear("tasks")
+        list.innerHTML = null
+        tasks = []
+        clearInput()
     }
 }
 
-// Função que irá deletar uma tarefa específica correspondente com o ícone de lixeira que foi clicado
-function deletarTarefa(iconeLixeira) {
-
-    let li = iconeLixeira.parentElement
-
-    let nome = String(li.getAttribute('name'))
-
-    for (let value in tarefas) {
-        if (nome === tarefas[value]) {
-            tarefas.splice(value, 1)
-        }
+function deleteTask(trashIcon) {
+    let li = trashIcon.parentElement
+    let i = String(li.getAttribute('name'))
+    for (let index in tasks) {
+        i === tasks[index] ? tasks.splice(index, 1) : tasks
     }
-
-    index = document.getElementsByTagName("li")
-
-    iconeLixeira.parentElement.remove()
-
-    valor = JSON.stringify(tarefas)
-
-    localStorage.setItem("tarefas", valor)
-
+    trashIcon.parentElement.remove()
+    localStorage.setItem("tasks", JSON.stringify(tasks))
 }
-
-
