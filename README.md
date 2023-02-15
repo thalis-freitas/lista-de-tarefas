@@ -2,7 +2,7 @@
 
 ## :clipboard: Sobre o Projeto
 
-Lista de Tarefas desenvolvida utilizando localStorage para fazer o armazenamento local de dados, garantindo que mesmo quando o navegador for fechado as tarefas não serão perdidas.
+Lista de Tarefas desenvolvida utilizando localStorage para fazer o armazenamento local de dados, garantindo que mesmo quando o navegador for fechado ou atualizado as tarefas não serão perdidas.
 
 Link para a página: https://thalis-freitas.github.io/lista-de-tarefas/
 
